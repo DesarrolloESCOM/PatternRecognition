@@ -1,6 +1,11 @@
 __author__ = 'alberto'
 from django.http import HttpResponse
 from scipy import misc
+#import Image
+from django.template.loader import get_template
+from django.template import Context
+from django.shortcuts import render
+
 
 '''
 
@@ -22,13 +27,20 @@ print image.shape, image.dtype
 '''
 
 
-def index(response):
+def index(request):
 	image = misc.imread("/home/alberto/Downloads/WP_001922.jpg")
 	#contenido = image.shape
 	contenido2 = image.dtype
 	return HttpResponse(contenido2)
 
 
-def matrixOperations(response):
+def matrixOperations(request):
 	contenido = "Operacion con Matrices"
 	return HttpResponse(contenido)
+
+def templateRender(request):
+	template = get_template('test.html')
+	htmlResponse = template.render(Context({'message':'Hola Mundo template'}))
+	return HttpResponse(htmlResponse)
+def shortCutRender(request):
+	return render(request, 'test2.html', {'mensaje': 'Prueba con shortcut como Grails'})
