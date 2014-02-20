@@ -43,4 +43,4 @@ def templateRender(request):
 	htmlResponse = template.render(Context({'message':'Hola Mundo template'}))
 	return HttpResponse(htmlResponse)
 def shortCutRender(request):
-	return render(request, 'test2.html', {'mensaje': 'Prueba con shortcut como Grails'})
+	return render(request, 'test.html', {'mensaje': 'Prueba con shortcut como Grails'})
