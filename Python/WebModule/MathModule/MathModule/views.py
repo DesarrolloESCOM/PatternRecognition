@@ -1,9 +1,6 @@
 __author__ = 'alberto'
 from django.http import HttpResponse
-from scipy import misc
 #import Image
-from django.template.loader import get_template
-from django.template import Context
 from django.shortcuts import render
 
 
@@ -26,21 +23,25 @@ print "\n"
 print image.shape, image.dtype
 '''
 
-
+#Para cargar la pagina inicial
 def index(request):
-	image = misc.imread("/home/alberto/Downloads/WP_001922.jpg")
-	#contenido = image.shape
-	contenido2 = image.dtype
-	return HttpResponse(contenido2)
+	return render(request, 'index.html')
 
-
-def matrixOperations(request):
-	contenido = "Operacion con Matrices"
+#Para regresar el contenido del cubo
+def cubo(request):
+	contenido = "cubo"
 	return HttpResponse(contenido)
 
-def templateRender(request):
-	template = get_template('test.html')
-	htmlResponse = template.render(Context({'message':'Hola Mundo template'}))
-	return HttpResponse(htmlResponse)
-def shortCutRender(request):
-	return render(request, 'test.html', {'mensaje': 'Prueba con shortcut como Grails'})
+#para cargar la vista de las clases
+def clases(request):
+	contenido = "clases"
+	return HttpResponse(contenido)
+
+#para cargar la vista de las imagenes
+def imagen(request):
+	contenido = "imagen"
+	return HttpResponse(contenido)
+#para cargar la vista con las banderas ya procesadas
+def banderas(request):
+	contenido = "Banderas"
+	return HttpResponse(contenido)
