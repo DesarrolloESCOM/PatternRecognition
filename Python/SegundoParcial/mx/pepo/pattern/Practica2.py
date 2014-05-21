@@ -15,6 +15,8 @@ def practicaGeneraClases():
 	Noclases = int(raw_input())
 	print "Cuantos vecinos por clase? \n"
 	VecinosPorClase = int(raw_input())
+	print "Cuantos vecinos a considerar en al evaluacion? \n"
+	vecinosAConsiderar = int(raw_input())
 	print "Cuanta dispercion desde el centro de la clase ? \n"
 	dispercionVecinos = int(raw_input())
 	for i in xrange(0, Noclases):
@@ -34,14 +36,14 @@ def practicaGeneraClases():
 	#
 	# Evaluacion de los clasificadores
 	#
-	print "-"*60+"\n"
-	quitaUno = leaveOneOut(clases)
+	print "-"*60+" Leave one out "+"-"*60+"\n"
+	quitaUno = leaveOneOut(clases,vecinosAConsiderar)
 	print quitaUno
-	print "-"*60+"\n"
-	crossValidation = CrossValidation(clases)
+	print "-"*60+" Cross Validation "+"-"*60+"\n"
+	crossValidation = CrossValidation(clases,vecinosAConsiderar)
 	print crossValidation
-	print "-"*60+"\n"
-	pruebaTodos = resampling(clases)
+	print "-"*60+" Resampling "+"-"*60+"\n"
+	pruebaTodos = resampling(clases,vecinosAConsiderar)
 	print pruebaTodos
 	print "-"*60+"\n"
 	#

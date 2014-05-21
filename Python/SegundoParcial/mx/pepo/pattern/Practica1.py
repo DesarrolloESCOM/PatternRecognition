@@ -17,22 +17,22 @@ def PracticaKNN():
 	vectorB = [[0], [40], [30]]
 
 	arregloClases = [Clase1, Clase2, Clase3]
-	print np.shape(arregloClases)
-	vecinosVectorA = CriterioKNN(arregloClases, vectorA)
-	vecinosVectorB = CriterioKNN(arregloClases, vectorB)
-	print "\n-------------------------------------------\n"
+	#print np.shape(arregloClases)
+	#vecinosVectorA = CriterioKNN(arregloClases, vectorA)
+	#vecinosVectorB = CriterioKNN(arregloClases, vectorB)
+	print "\n----------------RESUSTITUCION---------------------------\n"
 	resustitucion = resampling(arregloClases)
 	print resustitucion
-	print "\n-------------------------------------------\n"
+	print "\n----------------LEAVE ONE OUT---------------------------\n"
 	quitaUno = leaveOneOut(arregloClases)
 	print quitaUno
-	print "\n-------------------------------------------\n"
+	print "\n----------------CRUZADO ---------------------------\n"
 	cruzado = CrossValidation(arregloClases)
 	print cruzado
 	print "\n-------------------------------------------\n"
-	print vecinosVectorA
-	print "\n-------------------------------------------\n"
-	print vecinosVectorB
+	#print vecinosVectorA
+	#print "\n-------------------------------------------\n"
+	#print vecinosVectorB
 	#print "\n---------------------------------------------\n"
 	for x in range(0, 5):
 		ax.scatter(Clase1[:, x][0], Clase1[:, x][1], Clase1[:, x][2], c='r', marker='o')
@@ -40,10 +40,10 @@ def PracticaKNN():
 		ax.scatter(Clase2[:, x][0], Clase2[:, x][1], Clase2[:, x][2], c='b', marker='x')
 	for x in range(0, 5):
 		ax.scatter(Clase3[:, x][0], Clase3[:, x][1], Clase3[:, x][2], c='b', marker='^')
-	ax.scatter(vectorA[0], vectorA[1], vectorA[2], c='g', marker='s')
-	ax.scatter(vectorB[0], vectorB[1], vectorB[2], c='w', marker='s')
+	#ax.scatter(vectorA[0], vectorA[1], vectorA[2], c='g', marker='s')
+	#ax.scatter(vectorB[0], vectorB[1], vectorB[2], c='w', marker='s')
 	ax.set_xlabel('X')
 	ax.set_ylabel('Y')
 	plt.title("Practica KNN")
-	#plt.show()
+	plt.show()
 PracticaKNN()
